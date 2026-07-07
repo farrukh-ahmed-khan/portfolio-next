@@ -44,7 +44,7 @@ function Skills({ skills }) {
       id="skills"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.75 }}
       className="py-24 sm:py-28"
       aria-labelledby="skills-heading"
@@ -71,7 +71,7 @@ function Skills({ skills }) {
                   key={category.key}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.05 }}
                   transition={{ duration: 0.55, delay: index * 0.1 }}
                   className="skills-band"
                 >

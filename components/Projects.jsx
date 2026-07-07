@@ -20,7 +20,7 @@ function Projects({ projects }) {
       id="projects"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.18 }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.75 }}
       className="relative overflow-hidden py-24 sm:py-28"
       aria-labelledby="projects-heading"
