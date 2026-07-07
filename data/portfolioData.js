@@ -52,8 +52,8 @@ export const portfolioData = {
   heroTitles: ["Senior Full Stack Engineer", "React & Next.js Developer", "Node.js API Builder"],
   resumeUrl: "/Farrukh-Ahmed-Khan-CV.pdf",
   stats: [
-    { value: 5, suffix: "+", label: "Years Experience" },
-    { value: 6, suffix: "+", label: "Featured Projects" },
+    { value: 6, suffix: "+", label: "Years Experience" },
+    { value: 25, suffix: "+", label: "Projects Delivered" },
     { value: 3, suffix: "+", label: "Professional Roles" },
   ],
   experience: [
