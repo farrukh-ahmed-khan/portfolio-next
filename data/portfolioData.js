@@ -1,0 +1,250 @@
+import {
+  FiBriefcase,
+  FiCode,
+  FiGitBranch,
+  FiGlobe,
+  FiLayout,
+  FiServer,
+  FiTerminal,
+} from "react-icons/fi";
+import {
+  SiExpress,
+  SiLaravel,
+  SiMongodb,
+  SiMui,
+  SiMysql,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiRedux,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+
+export const iconMap = {
+  FiBriefcase,
+  FiCode,
+  FiGitBranch,
+  FiGlobe,
+  FiLayout,
+  FiServer,
+  FiTerminal,
+  SiExpress,
+  SiLaravel,
+  SiMongodb,
+  SiMui,
+  SiMysql,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiRedux,
+  SiTailwindcss,
+  SiTypescript,
+};
+
+export const portfolioData = {
+  initials: "FA",
+  name: "Farrukh Ahmed Khan",
+  title: "Senior Full Stack Engineer",
+  bio: "I build responsive, user-friendly web and mobile applications with React.js, Next.js, Node.js, Laravel, TypeScript, MongoDB, and MySQL. My work spans polished frontends, REST APIs, integrations, database design, and production-ready full stack systems.",
+  about:
+    "I'm a Karachi-based Senior Full Stack Engineer with hands-on experience across React.js, Next.js, Redux, Node.js, Express.js, NestJS, Laravel, MongoDB, Firebase, and MySQL. I translate UI/UX designs into responsive components, develop secure REST APIs, integrate third-party services, maintain scalable microservices, and collaborate in agile teams to ship reliable digital products.",
+  heroTitles: ["Senior Full Stack Engineer", "React & Next.js Developer", "Node.js API Builder"],
+  resumeUrl: "/Farrukh-Ahmed-Khan-CV.pdf",
+  stats: [
+    { value: 5, suffix: "+", label: "Years Experience" },
+    { value: 6, suffix: "+", label: "Featured Projects" },
+    { value: 3, suffix: "+", label: "Professional Roles" },
+  ],
+  experience: [
+    {
+      company: "Softnox Technologies",
+      role: "Senior Full Stack Engineer",
+      period: "June 2025 - Present",
+      highlights: [
+        "Design and develop custom web applications using React.js, Node.js, TypeScript, and MongoDB.",
+        "Build REST APIs with Node.js and Express.js while supporting scalable microservices.",
+        "Translate design mockups into responsive React components with SCSS and Tailwind CSS.",
+      ],
+    },
+    {
+      company: "Softnox Technologies",
+      role: "Senior Frontend Developer",
+      period: "June 2023 - June 2025",
+      highlights: [
+        "Led high-performance web application development with React.js and Next.js.",
+        "Optimized frontend architecture and state management with Redux and Context API.",
+        "Collaborated with backend teams for seamless API integration and data flow.",
+      ],
+    },
+    {
+      company: "AxeCorp Technologies",
+      role: "Full Stack Engineer",
+      period: "March 2022 - June 2023",
+      highlights: [
+        "Designed and implemented MERN stack interfaces and REST APIs.",
+        "Improved React.js code reusability and resolved issues in legacy codebases.",
+        "Delivered intuitive UI features with strong frontend and backend integration.",
+      ],
+    },
+    {
+      company: "TexvnX",
+      role: "Frontend Developer",
+      period: "March 2021 - February 2022",
+      highlights: [
+        "Built React.js user interfaces and state management flows.",
+        "Integrated REST APIs and supported backend work with Node.js, Express.js, and MongoDB.",
+        "Developed responsive pages using HTML, JavaScript, and CSS.",
+      ],
+    },
+  ],
+  education: {
+    degree: "Bachelor of Computer Science",
+    institution: "Karachi Institute of Economics and Technology (KIET)",
+    period: "2020 - 2024",
+    certifications: ["Frontend Development", "MERN Stack Development"],
+  },
+  skills: {
+    frontend: [
+      { name: "React", icon: "SiReact", level: 95 },
+      { name: "Next.js", icon: "SiNextdotjs", level: 90 },
+      { name: "Redux Toolkit", icon: "SiRedux", level: 88 },
+      { name: "TypeScript", icon: "SiTypescript", level: 86 },
+      { name: "Tailwind CSS", icon: "SiTailwindcss", level: 90 },
+      { name: "Bootstrap / MUI / Ant Design", icon: "SiMui", level: 84 },
+    ],
+    backend: [
+      { name: "Node.js", icon: "SiNodedotjs", level: 90 },
+      { name: "Express.js / NestJS", icon: "SiExpress", level: 86 },
+      { name: "Laravel / PHP", icon: "SiLaravel", level: 82 },
+      { name: "REST APIs", icon: "FiServer", level: 92 },
+      { name: "MongoDB", icon: "SiMongodb", level: 86 },
+      { name: "MySQL / Firebase", icon: "SiMysql", level: 84 },
+    ],
+    tools: [
+      { name: "Git / GitHub", icon: "FiGitBranch", level: 90 },
+      { name: "AWS", icon: "FiServer", level: 75 },
+      { name: "API Integration", icon: "FiGlobe", level: 90 },
+      { name: "VS Code / Visual Studio", icon: "FiTerminal", level: 88 },
+      { name: "Agile Collaboration", icon: "FiBriefcase", level: 84 },
+      { name: "Responsive UI", icon: "FiLayout", level: 92 },
+    ],
+  },
+  projects: [
+    {
+      title: "Texas Center Wellness",
+      description: "Wellness and integrative medicine portal focused on anti-aging, regenerative therapies, and hormone optimization. Built React interfaces, Redux Toolkit state, Node.js REST APIs, MongoDB data models, appointment flows, and responsive therapy pages.",
+      category: "Full Stack",
+      tags: ["React", "Redux Toolkit", "Node.js", "MongoDB"],
+      image: "https://placehold.co/900x700/2563eb/f4f7fb?text=Texas+Center+Wellness",
+      github: "",
+      live: "https://texascenterwellness.com/",
+    },
+    {
+      title: "Gofer Assistants",
+      description: "Service marketplace connecting customers with freelance assistants for pet care, cleaning, yard work, and home services. Developed Laravel REST APIs, MySQL schemas, Stripe payments, booking workflows, admin tools, webhooks, and email notifications.",
+      category: "Full Stack",
+      tags: ["Laravel", "MySQL", "Stripe", "REST APIs"],
+      image: "https://placehold.co/900x700/2563eb/f4f7fb?text=Gofer+Assistants",
+      github: "",
+      live: "https://goferassistants.com/",
+    },
+    {
+      title: "Kepka House",
+      description: "Luxury real estate platform with property listings, detailed pages, image galleries, inquiry submissions, and admin-friendly content management. Used Next.js SSR, optimized routing, API routes, MongoDB, image optimization, and production deployment configuration.",
+      category: "Full Stack",
+      tags: ["Next.js", "MongoDB", "SSR", "SEO"],
+      image: "https://placehold.co/900x700/2563eb/f4f7fb?text=Kepka+House",
+      github: "",
+      live: "https://kepkahouse.com/",
+    },
+    {
+      title: "Pepperoni Pizza",
+      description: "Online pizza ordering application where customers can customize pizzas and complete purchases. Built with ReactJS, Laravel, MySQL, Redux Toolkit, and role-based flows for customers, sales agents, and administrators.",
+      category: "Ecommerce",
+      tags: ["React", "Laravel", "MySQL", "Redux Toolkit"],
+      image: "https://placehold.co/900x700/2563eb/f4f7fb?text=Pepperoni+Pizza",
+      github: "",
+      live: "https://brian-pizza-man-frontend.devdesignbuild.com/",
+    },
+    {
+      title: "Scott Miller Books",
+      description: "Book ecommerce experience supporting hard copy, paperback, and e-book purchases. Maintained user dashboards for purchased e-books and integrated Lulu print-on-demand plus SquareUp payment services.",
+      category: "Ecommerce",
+      tags: ["React", "Laravel", "Redux Toolkit", "SquareUp"],
+      image: "https://placehold.co/900x700/2563eb/f4f7fb?text=Scott+Miller+Books",
+      github: "",
+      live: "https://scottlmillerbooks.com/",
+    },
+    {
+      title: "Tuxedo Air Platform",
+      description: "Corporate aviation website showcasing helicopter and airplane services, charter operations, aircraft sales, certifications, fleet details, and operational statistics. Built Laravel backend, SQL database, Blade templates, admin panels, and responsive frontend pages.",
+      category: "Web",
+      tags: ["Laravel", "SQL", "Blade", "JavaScript"],
+      image: "https://placehold.co/900x700/2563eb/f4f7fb?text=Tuxedo+Air+Platform",
+      github: "",
+      live: "https://tuxedo.infinityfreeapp.com/",
+    },
+  ],
+  testimonials: [
+    {
+      name: "Chris Hill",
+      role: "Founder, CueClub",
+      rating: 5,
+      quote:
+        "I have been very impressed with Farrukh's attention to detail. He was able to create a solid sandbox for future iterations and design considerations.",
+    },
+    {
+      name: "Samuel Jediael Bautista Sosa",
+      role: "Client",
+      rating: 5,
+      quote:
+        "Farrukh is a true professional. He delivered exactly what I expected on time and handled the project with great attention to detail. Very easy to communicate with.",
+    },
+    {
+      name: "Baynton Jesse",
+      role: "Client",
+      rating: 5,
+      quote:
+        "The seller's expertise and attention to detail resulted in a top-notch deliverable. Highly recommended for quality work.",
+    },
+    {
+      name: "Ria Kumar",
+      role: "Founder, OutfitIQ",
+      rating: 5,
+      quote: "Great developer to work with. Highly recommend.",
+    },
+  ],
+  contact: {
+    email: "khanfarrukh200@gmail.com",
+    phone: "+923481339849",
+    location: "Karachi, Pakistan",
+    socials: {
+      github: "https://github.com/farrukh-ahmed-khan",
+      linkedin: "https://www.linkedin.com/in/farrukh-ahmed-khan/",
+      portfolio: "https://farrukhahmedkhan.me/",
+      upwork: "https://www.upwork.com/freelancers/farrukhahmedkhan",
+    },
+  },
+};
+
+export const skillCategories = [
+  {
+    key: "frontend",
+    label: "Frontend",
+    icon: "FiLayout",
+    description: "Responsive React and Next.js interfaces with practical state management.",
+  },
+  {
+    key: "backend",
+    label: "Backend",
+    icon: "FiCode",
+    description: "REST APIs, integrations, services, and database-backed application logic.",
+  },
+  {
+    key: "tools",
+    label: "Tools & Workflow",
+    icon: "FiBriefcase",
+    description: "Version control, cloud basics, agile delivery, and production handoff.",
+  },
+];
