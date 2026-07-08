@@ -46,11 +46,31 @@ function Contact({ data }) {
     }
 
     setLoading(true);
-    await new Promise((resolve) => window.setTimeout(resolve, 1200));
-    toast.success("Message sent! *");
-    setFormData(initialForm);
-    setErrors({});
-    setLoading(false);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        if (result.errors) setErrors(result.errors);
+        toast.error(result.message || "Unable to send message right now.");
+        return;
+      }
+
+      toast.success("Message sent! I'll reply soon.");
+      setFormData(initialForm);
+      setErrors({});
+    } catch {
+      toast.error("Unable to send message right now.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const socialLinks = [
