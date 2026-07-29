@@ -32,7 +32,7 @@ function Projects({ projects }) {
             <p className="section-label">// PROJECTS</p>
             <span className="hero-index mb-6 block">03</span>
             <h2 id="projects-heading" className="max-w-4xl text-3xl font-black tracking-[-0.05em] text-[var(--text)] sm:text-6xl">
-              Production projects across wellness, marketplaces, real estate, ecommerce, and aviation.
+              Production projects across education, wellness, marketplaces, real estate, ecommerce, and aviation.
             </h2>
           </div>
 

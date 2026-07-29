@@ -132,6 +132,15 @@ export const portfolioData = {
   },
   projects: [
     {
+      title: "Zelos",
+      description: "Full-stack financial literacy platform for school programs, mentoring, scholarships, events, subscriptions, donations, community forums, and online store management. Built role-based dashboards and access flows for students, schools, admins, mentors, and subscribers, with authentication, Stripe billing, MongoDB, admin content tools, video uploads, and email notifications.",
+      category: "Full Stack",
+      tags: ["Next.js", "MongoDB", "Stripe", "Role-Based Access"],
+      image: "https://placehold.co/900x700/2563eb/f4f7fb?text=Zelos",
+      github: "",
+      live: "https://zelos.vercel.app/",
+    },
+    {
       title: "Texas Center Wellness",
       description: "Wellness and integrative medicine portal focused on anti-aging, regenerative therapies, and hormone optimization. Built React interfaces, Redux Toolkit state, Node.js REST APIs, MongoDB data models, appointment flows, and responsive therapy pages.",
       category: "Full Stack",
