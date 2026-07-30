@@ -138,7 +138,7 @@ export const portfolioData = {
       tags: ["Next.js", "MongoDB", "Stripe", "Role-Based Access"],
       image: "https://placehold.co/900x700/2563eb/f4f7fb?text=Zelos",
       github: "",
-      live: "https://zelos.vercel.app/",
+      live: "https://zelosfoundation.org/",
     },
     {
       title: "Texas Center Wellness",
