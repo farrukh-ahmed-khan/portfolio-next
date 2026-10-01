@@ -31,8 +31,9 @@ function createBeads(count) {
   return geometry;
 }
 
-const colors = ["#c89be9", "#94d9ec", "#a398fa", "#b9c6f6"];
-const axes = [[.2, 1, .15], [1, .25, -.4], [-.35, .5, 1], [.7, -.6, .5]];
+const colors = ["#c89be9", "#94d9ec", "#a398fa", "#b9c6f6", "#d5b0ef", "#9ee6e1", "#b6a4ff", "#a6c9ef"];
+const axes = [[.2, 1, .15], [1, .25, -.4], [-.35, .5, 1], [.7, -.6, .5],
+  [-.6, 1, .4], [.4, -.2, 1], [1, .7, .2], [-.8, -.3, 1]];
 
 function BeadedGlobe({ active, mobile, travel, onFailure }) {
   const group = useRef(null), orbs = useRef([]), time = useRef(0);
@@ -42,7 +43,7 @@ function BeadedGlobe({ active, mobile, travel, onFailure }) {
   const motion = useMemo(() => axes.map((axis, index) => {
     const n = new Vector3(...axis).normalize();
     const u = new Vector3().crossVectors(n, Math.abs(n.y) > .9 ? new Vector3(1, 0, 0) : new Vector3(0, 1, 0)).normalize();
-    return { u, v: new Vector3().crossVectors(n, u).normalize(), phase: index * 1.7 + .5, speed: .3 + index * .06 };
+    return { u, v: new Vector3().crossVectors(n, u).normalize(), phase: index * 1.7 + .5, speed: .3 + (index % 4) * .06 };
   }), []);
   const uniforms = useMemo(() => ({
     u_scale: { value: .07 }, u_breath: { value: 1 }, u_push: { value: .48 }, u_falloff: { value: 4 },

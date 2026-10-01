@@ -16,12 +16,17 @@ available in the section header. Mobile, short viewports and reduced-motion mode
 use a normal vertical list. Case studies use a native modal dialog with Escape,
 focus trapping, focus restoration, and the existing full project descriptions.
 
-The decorative beaded globe uses instanced capsule geometry and four orbiting
+The decorative beaded globe uses instanced capsule geometry and eight orbiting
 spheres which deform and illuminate its surface. It is lazy-loaded, capped at
 30 fps on desktop / 20 fps on mobile, and pauses offscreen, in hidden tabs, and
 for reduced motion. Desktop uses 2200 instances and DPR up to 1.5; mobile uses
-1000 instances and DPR 1. It lives beneath the desktop showcase and after the
-mobile project list. No planet was added back to the hero.
+1000 instances and DPR 1. A single fixed canvas travels between measured section
+anchors from the hero through the footer, reversing naturally when scrolling up.
+Its position, scale, and rotation ease with scroll; orbiting spheres animate on
+their own. The globe stays behind section content and never intercepts clicks.
+Mobile uses a smaller globe along the bottom edge. Reduced motion keeps it static.
+Section resizing and project filtering recalculate the path. The hero nebula
+continues its independent time-based animation. No planet was added back.
 
 ## Source and license
 
@@ -63,3 +68,10 @@ expected project lists, the healthcare case study included CharmHealth EHR and
 QuickBooks Online, and there was no horizontal overflow. No uncaught browser
 errors occurred. Production build and lint passed; lint retains the existing
 `next/no-img-element` warning in `components/About.jsx`.
+
+The full-page globe check passed for one persistent canvas, all six section
+positions plus the footer, side-to-side travel, reverse scrolling, pointer
+transparency, and project dialog interaction. Reduced-motion mode holds its
+position and stops ongoing rendering after layout settles. Mobile sizing and
+horizontal overflow checks passed at 320, 390, 768, 1024, 1440, and 1920px with
+no browser or shader errors. The production build also passed.

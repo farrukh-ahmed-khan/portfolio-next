@@ -9,7 +9,7 @@ uniform float u_scale;
 uniform float u_breath;
 uniform float u_push;
 uniform float u_falloff;
-uniform vec3 u_orbs[4];
+uniform vec3 u_orbs[8];
 
 uniform vec3 u_cursor;
 uniform float u_hover;
@@ -37,7 +37,7 @@ void main() {
   vec3 basePos = a_instancePos * u_breath;
 
   float dent = 1.0;
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 8; i++) {
     dent = min(dent, gOrbFalloff(basePos, u_orbs[i]));
   }
 
