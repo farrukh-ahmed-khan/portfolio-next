@@ -1,139 +1,78 @@
 "use client";
 
-import { memo, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { FiArrowUpRight, FiGithub } from "react-icons/fi";
-import SpotlightCard from "./reactbits/SpotlightCard";
-import DotField from "./reactbits/DotField";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import ProjectPanel from "./projects/ProjectPanel";
+import ProjectDetails from "./projects/ProjectDetails";
 
 function Projects({ projects }) {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const filters = useMemo(() => ["All", ...Array.from(new Set(projects.map((project) => project.category)))], [projects]);
+  const [filter, setFilter] = useState("All");
+  const [pinned, setPinned] = useState(false);
+  const [active, setActive] = useState(0);
+  const [selected, setSelected] = useState(null);
+  const track = useRef(null);
+  const filters = useMemo(() => ["All", ...new Set(projects.map(p => p.category))], [projects]);
+  const shown = useMemo(() => filter === "All" ? projects : projects.filter(p => p.category === filter), [filter, projects]);
+  const { scrollYProgress } = useScroll({ target: track, offset: ["start start", "end end"] });
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", `-${(shown.length - 1) * 100 / shown.length}%`]);
+  useMotionValueEvent(scrollYProgress, "change", value => {
+    setActive(Math.max(0, Math.min(shown.length - 1, Math.round(value * (shown.length - 1)))));
+  });
+  useEffect(() => {
+    const desktop = matchMedia("(min-width: 1024px) and (min-height: 680px)");
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setPinned(desktop.matches && !reduced.matches);
+    update();
+    desktop.addEventListener("change", update); reduced.addEventListener("change", update);
+    return () => { desktop.removeEventListener("change", update); reduced.removeEventListener("change", update); };
+  }, []);
+  const close = useCallback(() => setSelected(null), []);
+  const goTo = (index) => {
+    const element = track.current;
+    if (!element) return;
+    const top = window.scrollY + element.getBoundingClientRect().top;
+    const distance = element.offsetHeight - window.innerHeight;
+    window.scrollTo({ top: top + distance * index / Math.max(shown.length - 1, 1), behavior: "smooth" });
+  };
 
-  const filteredProjects = useMemo(() => {
-    if (activeFilter === "All") return projects;
-    return projects.filter((project) => project.category === activeFilter);
-  }, [activeFilter, projects]);
-
-  return (
-    <motion.section
-      id="projects"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.05 }}
-      transition={{ duration: 0.75 }}
-      className="relative overflow-hidden py-24 sm:py-28"
-      aria-labelledby="projects-heading"
-    >
-      <DotField />
-      <div className="section-shell relative z-10">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="section-label">// PROJECTS</p>
-            <span className="hero-index mb-6 block">03</span>
-            <h2 id="projects-heading" className="max-w-4xl text-3xl font-black tracking-[-0.05em] text-[var(--text)] sm:text-6xl">
-              Web and mobile projects across sports, AI styling, education, healthcare, and marketplaces.
-            </h2>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                type="button"
-                onClick={() => setActiveFilter(filter)}
-                className={`font-space px-4 py-3 text-xs uppercase tracking-[0.22em] transition duration-300 ${
-                  activeFilter === filter
-                    ? "bg-[var(--primary)] text-[var(--bg)]"
-                    : "border border-[rgba(37,99,235,0.24)] bg-[rgba(255,255,255,0.42)] text-[var(--text)] hover:border-[var(--primary)]"
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <motion.div layout className="mt-14 grid gap-6 lg:grid-cols-12">
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => {
-              const sizeClass =
-                index === 0
-                  ? "lg:col-span-7"
-                  : index === 1
-                    ? "lg:col-span-5"
-                    : index % 3 === 0
-                      ? "lg:col-span-4"
-                      : "lg:col-span-4";
-
-              return (
-                <motion.article
-                  layout
-                  key={project.title}
-                  initial={{ opacity: 0, y: 24, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 18, scale: 0.98 }}
-                  transition={{ duration: 0.35, ease: "easeOut" }}
-                  className={`project-slab group ${sizeClass}`}
-                >
-                  <SpotlightCard className="h-full">
-                  <div className="project-slab-media">
-                    <img src={project.image} alt={`${project.title} preview`} className={`w-full object-cover transition duration-500 group-hover:scale-105 ${index === 0 ? "h-[26rem]" : "h-72"}`} />
-                    <div className="project-slab-overlay" />
-                  </div>
-
-                  <div className="project-slab-body">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="font-space text-[11px] uppercase tracking-[0.26em] text-[var(--primary)]">
-                          {String(index + 1).padStart(2, "0")} / {project.category}
-                        </p>
-                        <h3 className="mt-3 text-2xl font-semibold text-[var(--text)] md:text-3xl">{project.title}</h3>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        {project.github ? (
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={`View ${project.title} source code on GitHub`}
-                            className="project-icon-btn"
-                          >
-                            <FiGithub size={18} />
-                          </a>
-                        ) : null}
-                        <a
-                          href={project.live}
-                          target="_blank"
-                          rel="noreferrer"
-                          aria-label={`Open live demo for ${project.title}`}
-                          className="project-icon-btn"
-                        >
-                          <FiArrowUpRight size={18} />
-                        </a>
-                      </div>
-                    </div>
-
-                    <p className="mt-6 max-w-2xl text-sm leading-7 text-[var(--muted)]">{project.description}</p>
-
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="project-tag">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  </SpotlightCard>
-                </motion.article>
-              );
-            })}
-          </AnimatePresence>
-        </motion.div>
+  return <section id="projects" className="projects-showcase" aria-labelledby="projects-heading">
+    <div className="section-shell projects-header">
+      <div>
+        <p className="section-label">{"// SELECTED WORK"}</p>
+        <h2 id="projects-heading">Ideas turned into<br /><span>real-world products.</span></h2>
+        <p className="projects-intro">A closer look at the platforms, experiences, and systems I&apos;ve helped build.</p>
       </div>
-    </motion.section>
-  );
+      <div className="projects-filters" role="group" aria-label="Filter projects">
+        {filters.map(label => <button key={label} type="button" aria-pressed={filter === label}
+          onClick={() => { setFilter(label); setActive(0); }}>{label}</button>)}
+      </div>
+    </div>
+    <div ref={track} className={`project-scroll ${pinned ? "is-pinned" : "is-stacked"}`}
+      style={{ height: pinned ? `${shown.length * 100}vh` : "auto" }}>
+      <div className="project-stage">
+        <motion.div className="project-track" style={{ x: pinned ? x : 0, width: pinned ? `${shown.length * 100}%` : "100%" }}>
+          {shown.map((project, index) => <div className="project-slide" key={project.title}
+            style={{ width: pinned ? `${100 / shown.length}%` : "100%" }}
+            inert={pinned && index !== active ? "" : undefined}
+            aria-hidden={pinned && index !== active ? true : undefined}>
+            <ProjectPanel project={project} index={index} total={shown.length} interactive={pinned} onOpen={() => setSelected(project)} />
+          </div>)}
+        </motion.div>
+        {pinned && <>
+          <div className="project-navigation" aria-label="Project navigation">
+            <button type="button" aria-label="Previous project" disabled={active === 0} onClick={() => goTo(active - 1)}><FiArrowLeft /></button>
+            <div className="project-dots">{shown.map((project, index) => <button key={project.title} type="button"
+              aria-label={`Show project ${index + 1}: ${project.title}`} aria-current={active === index ? "step" : undefined}
+              onClick={() => goTo(index)} />)}</div>
+            <button type="button" aria-label="Next project" disabled={active === shown.length - 1} onClick={() => goTo(active + 1)}><FiArrowRight /></button>
+          </div>
+          <motion.div className="project-progress" style={{ scaleX: scrollYProgress }} />
+        </>}
+      </div>
+    </div>
+    {selected && <ProjectDetails project={selected} onClose={close} />}
+  </section>;
 }
 
 export default memo(Projects);

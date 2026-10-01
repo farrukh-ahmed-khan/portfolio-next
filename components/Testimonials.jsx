@@ -26,7 +26,7 @@ function Testimonials({ testimonials }) {
       aria-labelledby="testimonials-heading"
     >
       <div className="section-shell">
-        <p className="section-label">// TESTIMONIALS</p>
+        <p className="section-label">{"// TESTIMONIALS"}</p>
         <span className="hero-index mb-6 block">04</span>
         <h2 id="testimonials-heading" className="max-w-3xl text-3xl font-black tracking-[-0.05em] text-[var(--text)] sm:text-6xl">
           What clients say about working with me.

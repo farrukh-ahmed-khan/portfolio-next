@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { FiGithub, FiGlobe, FiLinkedin, FiMail, FiMapPin, FiPhone, FiSend } from "react-icons/fi";
 import { SiUpwork } from "react-icons/si";
 import SpotlightCard from "./reactbits/SpotlightCard";
+import Astronaut from "./three/Astronaut";
 
 const initialForm = {
   name: "",
@@ -87,19 +88,28 @@ function Contact({ data }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.75 }}
-      className="py-24 sm:py-28"
+      className="cosmic-contact py-24 sm:py-28"
       aria-labelledby="contact-heading"
     >
       <div className="section-shell">
+        <div className="contact-orbit-intro">
+          <div>
+            <p className="section-label">NEXT CHAPTER</p>
+            <h2 className="contact-orbit-heading">Good ideas deserve<br /><span>a place to land.</span></h2>
+            <p className="mt-6 max-w-md text-lg leading-8 text-[var(--muted)]">Have a project in mind? Let’s build something worth putting into the world.</p>
+            <a href="#contact-heading" className="cosmic-button cosmic-button-secondary mt-7">Start a conversation <FiSend size={16} /></a>
+          </div>
+          <Astronaut />
+        </div>
         <div className="contact-shell">
           <div>
-            <p className="section-label">// CONTACT</p>
+            <p className="section-label">{"// CONTACT"}</p>
             <span className="hero-index mb-6 block">05</span>
             <h2 id="contact-heading" className="max-w-3xl text-3xl font-black tracking-[-0.05em] text-[var(--text)] sm:text-6xl">
-              Let's build reliable web products with clean execution.
+              Let&apos;s build reliable web and mobile products.
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--muted)] sm:text-lg">
-              Reach out for React, Next.js, Node.js, Laravel, API integration, dashboard, marketplace, ecommerce, or custom full stack web application work.
+              Reach out for React and Next.js web apps, React Native and Expo apps for iOS and Android, Node.js and Laravel APIs, AI integrations, payment systems, or custom full-stack products.
             </p>
 
             <div className="mt-10 grid gap-4 md:grid-cols-2">

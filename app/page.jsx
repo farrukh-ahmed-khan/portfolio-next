@@ -13,19 +13,20 @@ import ScrollProgress from "@/components/ScrollProgress";
 import Skills from "@/components/Skills";
 import Testimonials from "@/components/Testimonials";
 import TechMarquee from "@/components/reactbits/TechMarquee";
+import ProjectGlobe from "@/components/three/ProjectGlobe";
 import { portfolioData } from "@/data/portfolioData";
 
 function Home() {
   return (
-    <div className="editorial-shell blueprint-grid relative min-h-screen bg-[var(--bg)] text-[var(--text)]">
+    <div className="editorial-shell cosmic-shell relative min-h-screen bg-[var(--bg)] text-[var(--text)]">
       <ScrollProgress />
       <BackToTop />
       <Toaster
         position="top-right"
         toastOptions={{
           style: {
-            background: "#ffffff",
-            color: "#0b1526",
+            background: "#12172b",
+            color: "#f1f2fa",
             border: "1px solid rgba(37, 99, 235, 0.24)",
             boxShadow: "0 0 20px rgba(37, 99, 235, 0.2)",
           },
@@ -33,10 +34,10 @@ function Home() {
       />
 
       <Navbar initials={portfolioData.initials} />
-      <div className="section-divider" />
-      <main className="relative z-10">
+      <ProjectGlobe />
+      <main className="relative">
         <Hero data={portfolioData} />
-        <TechMarquee />
+        <TechMarquee items={portfolioData.technologies} />
         <About data={portfolioData} />
         <Skills skills={portfolioData.skills} />
         <Projects projects={portfolioData.projects} />

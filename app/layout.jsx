@@ -1,34 +1,33 @@
-import localFont from "next/font/local";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { portfolioData } from "@/data/portfolioData";
 import "./globals.css";
+import "./cosmic.css";
 
-const inter = localFont({
-  src: "./fonts/Inter-Variable.woff2",
-  weight: "100 900",
-  style: "normal",
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-inter",
   display: "swap",
 });
 
-const spaceGrotesk = localFont({
-  src: "./fonts/SpaceGrotesk-Variable.woff2",
-  weight: "300 700",
-  style: "normal",
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-grotesk",
   display: "swap",
 });
 
-const jetbrainsMono = localFont({
-  src: "./fonts/JetBrainsMono-Variable.woff2",
-  weight: "100 800",
-  style: "normal",
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
   variable: "--font-mono",
   display: "swap",
 });
 
-const siteUrl = "https://farrukhahmedkhan.me";
-const siteName = "Farrukh Ahmed Khan | Senior Full Stack Engineer";
+const siteUrl = portfolioData.contact.socials.portfolio;
+const siteName = `${portfolioData.name} | ${portfolioData.title}`;
 const siteDescription =
-  "Farrukh Ahmed Khan is a Karachi-based Senior Full Stack Engineer building production web applications with React, Next.js, Node.js, Laravel, MongoDB, and MySQL. Available for freelance and remote work.";
+  "Farrukh Ahmed Khan is a Karachi-based full-stack developer with 4+ years of experience building web and mobile apps with React, Next.js, React Native, Expo, Node.js, TypeScript, and PostgreSQL. Shipped to the App Store and Google Play.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -43,6 +42,12 @@ export const metadata = {
     "Full Stack Developer",
     "React Developer",
     "Next.js Developer",
+    "React Native Developer",
+    "Expo Developer",
+    "iOS and Android App Development",
+    "TypeScript",
+    "PostgreSQL",
+    "Google Gemini Integration",
     "Node.js Developer",
     "Laravel Developer",
     "MERN Stack Developer",
@@ -66,9 +71,9 @@ export const metadata = {
     images: [
       {
         url: "/profile.png",
-        width: 800,
-        height: 1000,
-        alt: "Farrukh Ahmed Khan - Senior Full Stack Engineer",
+        width: 1254,
+        height: 1254,
+        alt: `${portfolioData.name} - ${portfolioData.title}`,
       },
     ],
   },
@@ -94,14 +99,14 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#2563eb",
+  themeColor: "#080b18",
 };
 
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Farrukh Ahmed Khan",
-  jobTitle: "Senior Full Stack Engineer",
+  jobTitle: portfolioData.title,
   url: siteUrl,
   image: `${siteUrl}/profile.png`,
   email: "mailto:khanfarrukh200@gmail.com",
@@ -116,21 +121,10 @@ const personJsonLd = {
     "https://www.linkedin.com/in/farrukh-ahmed-khan/",
     "https://www.upwork.com/freelancers/farrukhahmedkhan",
   ],
-  knowsAbout: [
-    "React",
-    "Next.js",
-    "Node.js",
-    "Express.js",
-    "Laravel",
-    "TypeScript",
-    "MongoDB",
-    "MySQL",
-    "REST APIs",
-    "Full Stack Web Development",
-  ],
+  knowsAbout: Object.values(portfolioData.skills).flat().map(skill => skill.name),
   alumniOf: {
     "@type": "CollegeOrUniversity",
-    name: "Karachi Institute of Economics and Technology (KIET)",
+    name: portfolioData.education.institution,
   },
 };
 

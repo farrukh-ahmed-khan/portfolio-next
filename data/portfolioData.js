@@ -1,10 +1,14 @@
 import {
   FiBriefcase,
   FiCode,
+  FiCloud,
+  FiCpu,
+  FiDatabase,
   FiGitBranch,
   FiGlobe,
   FiLayout,
   FiServer,
+  FiSmartphone,
   FiTerminal,
 } from "react-icons/fi";
 import {
@@ -15,6 +19,7 @@ import {
   SiMysql,
   SiNextdotjs,
   SiNodedotjs,
+  SiPostgresql,
   SiReact,
   SiRedux,
   SiTailwindcss,
@@ -24,10 +29,14 @@ import {
 export const iconMap = {
   FiBriefcase,
   FiCode,
+  FiCloud,
+  FiCpu,
+  FiDatabase,
   FiGitBranch,
   FiGlobe,
   FiLayout,
   FiServer,
+  FiSmartphone,
   FiTerminal,
   SiExpress,
   SiLaravel,
@@ -36,6 +45,7 @@ export const iconMap = {
   SiMysql,
   SiNextdotjs,
   SiNodedotjs,
+  SiPostgresql,
   SiReact,
   SiRedux,
   SiTailwindcss,
@@ -45,46 +55,41 @@ export const iconMap = {
 export const portfolioData = {
   initials: "FA",
   name: "Farrukh Ahmed Khan",
-  title: "Senior Full Stack Engineer",
-  bio: "I build responsive, user-friendly web and mobile applications with React.js, Next.js, Node.js, Laravel, TypeScript, MongoDB, and MySQL. My work spans polished frontends, REST APIs, integrations, database design, and production-ready full stack systems.",
+  title: "Full-Stack Developer",
+  bio: "I build and ship web and mobile applications with React, Next.js, React Native, Expo, Node.js, TypeScript, and PostgreSQL. From REST APIs and database design to AI integrations and App Store and Google Play releases, I own features from development to production.",
   about:
-    "I'm a Karachi-based Senior Full Stack Engineer with hands-on experience across React.js, Next.js, Redux, Node.js, Express.js, NestJS, Laravel, MongoDB, Firebase, and MySQL. I translate UI/UX designs into responsive components, develop secure REST APIs, integrate third-party services, maintain scalable microservices, and collaborate in agile teams to ship reliable digital products.",
-  heroTitles: ["Senior Full Stack Engineer", "React & Next.js Developer", "Node.js API Builder"],
+    "I'm a Karachi-based full-stack developer with 4+ years of experience building and shipping production web and mobile applications with React, Next.js, Node.js, TypeScript, PostgreSQL, and MongoDB. My work spans REST API design, relational and NoSQL data modelling, integrations with Stripe, Square, QuickBooks, CharmHealth EHR, and AWS S3, and production deployment. I own features end to end in Agile teams alongside UX, backend, and QA.",
+  highlight: "I've shipped a cross-platform React Native and Expo app to both the App Store and Google Play, with deep links, live match dashboards, and interactive venue maps.",
+  heroTitles: ["Full-Stack Developer", "React & Next.js Developer", "React Native & Expo Developer", "Node.js API Developer"],
+  technologies: ["React", "Next.js", "React Native", "Expo", "TypeScript", "Node.js", "PostgreSQL", "MongoDB", "Google Gemini", "Stripe", "AWS"],
   resumeUrl: "/Farrukh-Ahmed-Khan-CV.pdf",
   stats: [
-    { value: 6, suffix: "+", label: "Years Experience" },
-    { value: 25, suffix: "+", label: "Projects Delivered" },
-    { value: 3, suffix: "+", label: "Professional Roles" },
+    { value: 4, suffix: "+", label: "Years Experience" },
+    { value: 1, suffix: "", label: "Mobile App Released" },
+    { value: 3, suffix: "", label: "Professional Roles" },
   ],
   experience: [
     {
       company: "Softnox Technologies",
-      role: "Senior Full Stack Engineer",
-      period: "June 2025 - Present",
+      role: "Senior Full-Stack Engineer",
+      period: "June 2023 - Present",
       highlights: [
-        "Design and develop custom web applications using React.js, Node.js, TypeScript, and MongoDB.",
-        "Build REST APIs with Node.js and Express.js while supporting scalable microservices.",
-        "Translate design mockups into responsive React components with SCSS and Tailwind CSS.",
-      ],
-    },
-    {
-      company: "Softnox Technologies",
-      role: "Senior Frontend Developer",
-      period: "June 2023 - June 2025",
-      highlights: [
-        "Led high-performance web application development with React.js and Next.js.",
-        "Optimized frontend architecture and state management with Redux and Context API.",
-        "Collaborated with backend teams for seamless API integration and data flow.",
+        "Design and build custom web applications with React.js, Node.js, TypeScript, and MongoDB.",
+        "Develop and maintain REST APIs and scalable microservices using Node.js and Express.js.",
+        "Translate design mockups into reusable React components styled with SCSS and Tailwind CSS.",
+        "Participate in database design, implementation, and query optimization on MongoDB.",
+        "Collaborate with UX and backend teams in an Agile environment with daily standups and sprint delivery.",
       ],
     },
     {
       company: "AxeCorp Technologies",
-      role: "Full Stack Engineer",
+      role: "Full-Stack Engineer",
       period: "March 2022 - June 2023",
       highlights: [
-        "Designed and implemented MERN stack interfaces and REST APIs.",
-        "Improved React.js code reusability and resolved issues in legacy codebases.",
-        "Delivered intuitive UI features with strong frontend and backend integration.",
+        "Built user interfaces and backend services for multiple client projects on the MERN stack.",
+        "Designed and developed REST APIs with Node.js and Express.js, integrating them with React frontends.",
+        "Improved code reusability and rendering efficiency across shared React component libraries.",
+        "Debugged and refactored legacy codebases to reduce defects and improve maintainability.",
       ],
     },
     {
@@ -92,87 +97,308 @@ export const portfolioData = {
       role: "Frontend Developer",
       period: "March 2021 - February 2022",
       highlights: [
-        "Built React.js user interfaces and state management flows.",
-        "Integrated REST APIs and supported backend work with Node.js, Express.js, and MongoDB.",
-        "Developed responsive pages using HTML, JavaScript, and CSS.",
+        "Built responsive user interfaces and state management with React.js, HTML, CSS, and JavaScript.",
+        "Consumed and implemented REST APIs, ensuring reliable frontend-backend integration.",
+        "Contributed backend work using Node.js, Express.js, and MongoDB.",
       ],
     },
   ],
   education: {
-    degree: "Bachelor of Computer Science",
-    institution: "Karachi Institute of Economics and Technology (KIET)",
+    degree: "Bachelor of Science in Computer Science",
+    institution: "Karachi Institute of Economics and Technology (PAF-KIET), Karachi, Pakistan",
     period: "2020 - 2024",
     certifications: ["Frontend Development", "MERN Stack Development"],
   },
   skills: {
-    frontend: [
-      { name: "React", icon: "SiReact", level: 95 },
-      { name: "Next.js", icon: "SiNextdotjs", level: 90 },
-      { name: "Redux Toolkit", icon: "SiRedux", level: 88 },
-      { name: "TypeScript", icon: "SiTypescript", level: 86 },
-      { name: "Tailwind CSS", icon: "SiTailwindcss", level: 90 },
-      { name: "Bootstrap / MUI / Ant Design", icon: "SiMui", level: 84 },
+    "frontend": [
+      {
+        "name": "React 19",
+        "icon": "SiReact"
+      },
+      {
+        "name": "Next.js (App Router, SSR/SSG)",
+        "icon": "SiNextdotjs"
+      },
+      {
+        "name": "Redux",
+        "icon": "SiRedux"
+      },
+      {
+        "name": "Vite",
+        "icon": "FiCode"
+      },
+      {
+        "name": "Tailwind CSS",
+        "icon": "SiTailwindcss"
+      },
+      {
+        "name": "Material UI / Ant Design",
+        "icon": "SiMui"
+      },
+      {
+        "name": "shadcn/ui / Bootstrap",
+        "icon": "FiLayout"
+      },
+      {
+        "name": "Responsive Design",
+        "icon": "FiLayout"
+      }
     ],
-    backend: [
-      { name: "Node.js", icon: "SiNodedotjs", level: 90 },
-      { name: "Express.js / NestJS", icon: "SiExpress", level: 86 },
-      { name: "Laravel / PHP", icon: "SiLaravel", level: 82 },
-      { name: "REST APIs", icon: "FiServer", level: 92 },
-      { name: "MongoDB", icon: "SiMongodb", level: 86 },
-      { name: "MySQL / Firebase", icon: "SiMysql", level: 84 },
+    "mobile": [
+      {
+        "name": "React Native",
+        "icon": "SiReact"
+      },
+      {
+        "name": "Expo",
+        "icon": "FiSmartphone"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "SiTypescript"
+      },
+      {
+        "name": "iOS & Android Delivery",
+        "icon": "FiSmartphone"
+      },
+      {
+        "name": "App Store & Google Play Releases",
+        "icon": "FiGlobe"
+      },
+      {
+        "name": "Deep Links & Universal Links",
+        "icon": "FiGlobe"
+      },
+      {
+        "name": "Offline-Tolerant Live Data",
+        "icon": "FiDatabase"
+      }
     ],
-    tools: [
-      { name: "Git / GitHub", icon: "FiGitBranch", level: 90 },
-      { name: "AWS", icon: "FiServer", level: 75 },
-      { name: "API Integration", icon: "FiGlobe", level: 90 },
-      { name: "VS Code / Visual Studio", icon: "FiTerminal", level: 88 },
-      { name: "Agile Collaboration", icon: "FiBriefcase", level: 84 },
-      { name: "Responsive UI", icon: "FiLayout", level: 92 },
+    "backend": [
+      {
+        "name": "Node.js",
+        "icon": "SiNodedotjs"
+      },
+      {
+        "name": "Express / NestJS",
+        "icon": "SiExpress"
+      },
+      {
+        "name": "Laravel",
+        "icon": "SiLaravel"
+      },
+      {
+        "name": "REST API Design",
+        "icon": "FiServer"
+      },
+      {
+        "name": "JWT Authentication / RBAC",
+        "icon": "FiCode"
+      },
+      {
+        "name": "Microservices / Webhooks",
+        "icon": "FiServer"
+      },
+      {
+        "name": "WordPress (ACF)",
+        "icon": "FiLayout"
+      }
     ],
+    "databases": [
+      {
+        "name": "PostgreSQL",
+        "icon": "SiPostgresql"
+      },
+      {
+        "name": "MySQL",
+        "icon": "SiMysql"
+      },
+      {
+        "name": "MongoDB",
+        "icon": "SiMongodb"
+      },
+      {
+        "name": "Supabase / Firebase",
+        "icon": "FiDatabase"
+      },
+      {
+        "name": "Prisma",
+        "icon": "FiDatabase"
+      },
+      {
+        "name": "Sequelize / Mongoose",
+        "icon": "FiDatabase"
+      }
+    ],
+    "integrations": [
+      {
+        "name": "Google Gemini",
+        "icon": "FiCpu"
+      },
+      {
+        "name": "Stripe Checkout, Subscriptions & Billing",
+        "icon": "FiCode"
+      },
+      {
+        "name": "Square",
+        "icon": "FiCode"
+      },
+      {
+        "name": "QuickBooks Online",
+        "icon": "FiBriefcase"
+      },
+      {
+        "name": "CharmHealth EHR",
+        "icon": "FiGlobe"
+      },
+      {
+        "name": "Printify",
+        "icon": "FiGlobe"
+      },
+      {
+        "name": "Twilio / SMS",
+        "icon": "FiSmartphone"
+      },
+      {
+        "name": "Nodemailer",
+        "icon": "FiServer"
+      }
+    ],
+    "languages": [
+      {
+        "name": "JavaScript",
+        "icon": "FiCode"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "SiTypescript"
+      },
+      {
+        "name": "Python",
+        "icon": "FiCode"
+      },
+      {
+        "name": "PHP",
+        "icon": "FiCode"
+      },
+      {
+        "name": "C#",
+        "icon": "FiCode"
+      },
+      {
+        "name": "SQL",
+        "icon": "FiDatabase"
+      },
+      {
+        "name": "HTML5 / CSS3 / SCSS",
+        "icon": "FiLayout"
+      }
+    ],
+    "cloud": [
+      {
+        "name": "AWS S3 / EC2",
+        "icon": "FiCloud"
+      },
+      {
+        "name": "Vercel",
+        "icon": "FiCloud"
+      },
+      {
+        "name": "Git / GitHub",
+        "icon": "FiGitBranch"
+      },
+      {
+        "name": "CI/CD",
+        "icon": "FiGitBranch"
+      },
+      {
+        "name": "DNS & Domain Configuration",
+        "icon": "FiGlobe"
+      },
+      {
+        "name": "Email Infrastructure",
+        "icon": "FiServer"
+      },
+      {
+        "name": "Cloudflare",
+        "icon": "FiCloud"
+      },
+      {
+        "name": "Error Monitoring",
+        "icon": "FiTerminal"
+      }
+    ],
+    "practices": [
+      {
+        "name": "Agile / Scrum",
+        "icon": "FiBriefcase"
+      },
+      {
+        "name": "Code Review",
+        "icon": "FiGitBranch"
+      },
+      {
+        "name": "SEO & Core Web Vitals",
+        "icon": "FiGlobe"
+      },
+      {
+        "name": "Cross-Browser Development",
+        "icon": "FiLayout"
+      },
+      {
+        "name": "Performance Optimization",
+        "icon": "FiCode"
+      }
+    ]
   },
   projects: [
     {
       title: "CueLogic",
-      description: "Billiards tournament platform with automated single-elimination, double-elimination, and round-robin brackets, scheduling, live scoring, dispute handling, and ELO rankings. Built organizer, player, and admin dashboards with Stripe billing, messaging, and analytics, plus a React Native and Expo scorekeeper shipped to the App Store and Google Play.",
+      description: "Billiards tournament platform with a companion mobile scorekeeper shipped to the App Store and Google Play. Built single-elimination, double-elimination, and round-robin engines with automated brackets, scheduling, byes, live scoring, dispute handling, and ELO rankings. Delivered role-based organizer, player, and super-admin experiences with team registration, venue and table management, Stripe billing, SMS/email messaging, and analytics. Developed the Expo and React Native app with TypeScript, deep links, live match dashboards, and pinch-to-zoom venue maps.",
       category: "Web & Mobile",
-      tags: ["React", "React Native", "Expo", "Node.js", "Prisma", "PostgreSQL"],
-      image: "https://placehold.co/900x700/2563eb/f4f7fb?text=CueLogic",
+      tags: ["React", "React Native", "Expo", "TypeScript", "Node.js", "Express", "Prisma", "PostgreSQL", "Stripe"],
+      image: "/images/projects/cuelogic.jpg",
       github: "",
       live: "https://cuelogic.app/",
+      appLinks: [
+        { label: "App Store", href: "https://apps.apple.com/app/cuelogic-scorekeeper/id6803483701" },
+        { label: "Google Play", href: "https://play.google.com/store/apps/details?id=app.cuelogic.player" },
+      ],
     },
     {
       title: "OutfitIQ",
-      description: "AI personal styling and wardrobe assistant generating outfit, color-palette, and makeup recommendations. Integrated Google Gemini text, vision, and image-generation APIs for clothing analysis and multi-look fashion visuals, combined with rule-based recommendations, MongoDB persistence, image compression, favorites, and look comparison.",
-      category: "AI Applications",
-      tags: ["Next.js", "React", "TypeScript", "Google Gemini", "MongoDB"],
-      image: "https://placehold.co/900x700/2563eb/f4f7fb?text=OutfitIQ",
+      description: "AI personal styling and wardrobe assistant generating personalized outfit, color-palette, and makeup recommendations from occasion, skin tone, and garment preferences. Built with Next.js, React, and TypeScript, integrating Google Gemini text and vision models to validate uploaded clothing images, identify garments, colors, and textures, and return structured styling advice. Used Gemini image generation for multi-look fashion visuals with prompt variation, retries, timeouts, and graceful fallbacks. Combined AI output with a deterministic recommendation engine and MongoDB/Mongoose persistence, client-side image compression, favorites, and look comparison.",
+      category: "AI",
+      tags: ["Next.js", "React", "TypeScript", "Google Gemini", "MongoDB", "Mongoose"],
+      image: "/images/projects/outfitiq.jpg",
       github: "",
       live: "https://outfit-iq-ai.vercel.app/",
     },
     {
       title: "Zelos Foundation",
-      description: "Financial literacy and mentorship platform with secure role-based access for mentees, families, schools, moderators, and admins. Built scoped learning libraries with drip unlocking and completion tracking, school licensing and invitations, Stripe subscriptions and gift cards, Printify fulfilment, AWS S3 uploads, and admin analytics.",
+      description: "Financial literacy and mentorship platform for nonprofit learning and community programs. Built with Next.js App Router, React, TypeScript, Tailwind CSS, Ant Design, MongoDB, and Mongoose. Implemented JWT authentication with HTTP-only cookies, email verification, password recovery, and role/permission-based access for mentees, families, schools, moderators, and admins. Developed audience- and school-scoped content libraries with drip unlocking, completion tracking, subscriptions, school licensing, seat limits, and invitation workflows. Integrated Stripe checkout, subscriptions, promo codes, and gift cards with Printify fulfilment, AWS S3 media uploads, admin dashboards, and analytics.",
       category: "Full Stack",
-      tags: ["Next.js", "TypeScript", "MongoDB", "Stripe", "Printify", "AWS S3"],
-      image: "https://placehold.co/900x700/2563eb/f4f7fb?text=Zelos+Foundation",
+      tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Ant Design", "MongoDB", "Stripe", "Printify", "AWS S3"],
+      image: "/images/projects/zelos.jpg",
+      previewLabel: "Public landing page",
       github: "",
       live: "https://zelosfoundation.org/",
     },
     {
       title: "Texas Center Wellness",
-      description: "Healthcare booking platform with service and provider pages, a blog, and CharmHealth EHR integration for patient intake, availability, and appointment management. Integrated Square payments and refunds, QuickBooks Online invoices and webhooks, Express APIs, and MySQL data models, alongside structured data, dynamic metadata, and sitemaps.",
+      description: "Healthcare booking platform covering services, providers, blog content, and scheduling. Built a responsive Next.js App Router frontend with React, TypeScript, and Tailwind CSS. Integrated CharmHealth EHR for provider availability, patient creation, questionnaires, and appointment booking, rescheduling, and cancellation. Connected Square payments and refunds with QuickBooks Online OAuth, invoices, webhooks, and automated token refresh through Express APIs backed by MySQL and Sequelize. Delivered dynamic metadata, LocalBusiness/Article structured data, canonical tags, generated sitemaps, and Google Analytics.",
       category: "Full Stack",
-      tags: ["Next.js", "TypeScript", "Express", "MySQL", "CharmHealth EHR", "Square", "QuickBooks"],
-      image: "https://placehold.co/900x700/2563eb/f4f7fb?text=Texas+Center+Wellness",
+      tags: ["Next.js", "TypeScript", "Express", "MySQL", "Sequelize", "CharmHealth EHR", "Square", "QuickBooks Online"],
+      image: "/images/projects/texas-wellness.jpg",
       github: "",
       live: "https://texascenterwellness.com/",
     },
     {
       title: "Gofer Assistants",
-      description: "Service marketplace connecting customers with freelance assistants for pet care, cleaning, and home services. Developed secure Laravel REST APIs for authentication, listings, bookings, and payments over MySQL, integrated Stripe booking charges and payouts, and delivered an admin panel, payment webhooks, email notifications, and production deployment.",
+      description: "Service marketplace connecting customers with freelance assistants for pet care, cleaning, and home services. Developed secure Laravel REST APIs for authentication, service listings, bookings, and payments over a MySQL relational schema. Integrated Stripe booking charges and payouts, and shipped an admin panel and production deployment with payment webhooks and email notifications.",
       category: "Full Stack",
-      tags: ["Laravel", "PHP", "MySQL", "Stripe", "REST APIs"],
-      image: "https://placehold.co/900x700/2563eb/f4f7fb?text=Gofer+Assistants",
+      tags: ["Laravel", "MySQL", "Stripe", "REST APIs"],
+      image: "/images/projects/gofer.jpg",
       github: "",
       live: "https://goferassistants.com/",
     },
@@ -221,21 +447,51 @@ export const portfolioData = {
 
 export const skillCategories = [
   {
-    key: "frontend",
-    label: "Frontend",
-    icon: "FiLayout",
-    description: "Responsive React and Next.js interfaces with practical state management.",
+    "key": "frontend",
+    "label": "Frontend",
+    "icon": "FiLayout",
+    "description": "Responsive interfaces, state management, and Next.js App Router with SSR/SSG."
   },
   {
-    key: "backend",
-    label: "Backend",
-    icon: "FiCode",
-    description: "REST APIs, integrations, services, and database-backed application logic.",
+    "key": "mobile",
+    "label": "Mobile",
+    "icon": "FiSmartphone",
+    "description": "Cross-platform iOS and Android apps, from development to App Store and Google Play releases."
   },
   {
-    key: "tools",
-    label: "Tools & Workflow",
-    icon: "FiBriefcase",
-    description: "Version control, cloud basics, agile delivery, and production handoff.",
+    "key": "backend",
+    "label": "Backend",
+    "icon": "FiServer",
+    "description": "REST APIs, authentication, permissions, and scalable application services."
   },
+  {
+    "key": "databases",
+    "label": "Databases & ORMs",
+    "icon": "FiDatabase",
+    "description": "Relational and NoSQL data modelling, persistence, and query optimization."
+  },
+  {
+    "key": "integrations",
+    "label": "Integrations & AI",
+    "icon": "FiCpu",
+    "description": "Gemini text, vision, and image-generation APIs, payment systems, and business integrations."
+  },
+  {
+    "key": "languages",
+    "label": "Languages",
+    "icon": "FiCode",
+    "description": "Languages used across frontend, backend, and database development."
+  },
+  {
+    "key": "cloud",
+    "label": "Cloud & DevOps",
+    "icon": "FiCloud",
+    "description": "Production deployment, delivery pipelines, domains, and infrastructure."
+  },
+  {
+    "key": "practices",
+    "label": "Practices",
+    "icon": "FiBriefcase",
+    "description": "Agile delivery, code quality, SEO, and browser performance."
+  }
 ];

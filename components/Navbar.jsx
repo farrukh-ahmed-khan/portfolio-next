@@ -36,7 +36,7 @@ function Navbar({ initials }) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.65, delay: 0.5, ease: "easeOut" }}
       className={`fixed inset-x-0 top-0 z-50 border-t border-[rgba(37,99,235,0.15)] transition-all duration-300 ${
-        scrolled ? "bg-[rgba(244,247,251,0.88)] backdrop-blur-[14px] shadow-[0_10px_40px_rgba(11,21,38,0.08)]" : "bg-transparent"
+        scrolled ? "bg-[rgba(8,11,24,0.92)] backdrop-blur-[14px] shadow-[0_10px_40px_rgba(11,21,38,0.08)]" : "bg-transparent"
       }`}
     >
       <div className="section-shell flex items-center justify-between py-4">
@@ -49,7 +49,7 @@ function Navbar({ initials }) {
           </span>
         </Link>
 
-        <div className="hidden items-center gap-8 rounded-full border border-[rgba(37,99,235,0.14)] bg-[rgba(255,255,255,0.55)] px-6 py-3 md:flex">
+        <div className="hidden items-center gap-8 rounded-full border border-[rgba(37,99,235,0.14)] bg-[var(--surface)] px-6 py-3 md:flex">
           {navItems.map((item) => (
             <Link
               key={item.to}
@@ -69,7 +69,7 @@ function Navbar({ initials }) {
         <button
           type="button"
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-          className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-[rgba(37,99,235,0.22)] bg-[rgba(255,255,255,0.7)] md:hidden"
+          className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-[rgba(37,99,235,0.22)] bg-[var(--surface)] md:hidden"
           onClick={() => setMenuOpen((prev) => !prev)}
         >
           <span className={`absolute h-0.5 w-6 bg-[var(--primary)] transition-all duration-300 ${menuOpen ? "rotate-45" : "-translate-y-2"}`} />
@@ -84,7 +84,7 @@ function Navbar({ initials }) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-[rgba(37,99,235,0.12)] bg-[rgba(244,247,251,0.96)] backdrop-blur-xl md:hidden"
+            className="overflow-hidden border-t border-[rgba(37,99,235,0.12)] bg-[rgba(8,11,24,0.98)] backdrop-blur-xl md:hidden"
           >
             <div className="section-shell flex flex-col py-4">
               {navItems.map((item) => (

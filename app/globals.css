@@ -4,15 +4,15 @@
 @tailwind utilities;
 
 :root {
-  --bg: #f4f7fb;
-  --surface: rgba(255, 255, 255, 0.6);
-  --surface-strong: #ffffff;
-  --primary: #2563eb;
-  --secondary: #0891b2;
-  --text: #0b1526;
-  --muted: #4f6076;
-  --border: rgba(37, 99, 235, 0.2);
-  --glow: 0 12px 32px rgba(37, 99, 235, 0.1);
+  --bg: #080b18;
+  --surface: rgba(18, 23, 43, 0.86);
+  --surface-strong: #12172b;
+  --primary: #b6a4ff;
+  --secondary: #94d9ec;
+  --text: #f1f2fa;
+  --muted: #a6adc4;
+  --border: rgba(182, 164, 255, 0.18);
+  --glow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
 * {
@@ -190,7 +190,7 @@ h3 {
   width: 100%;
   border-radius: 1rem;
   border: 1px solid rgba(37, 99, 235, 0.22);
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--surface);
   padding: 0.95rem 1rem;
   color: var(--text);
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
@@ -216,7 +216,7 @@ h3 {
 .hero-panel {
   background:
     linear-gradient(180deg, rgba(37, 99, 235, 0.08), transparent 35%),
-    rgba(255, 255, 255, 0.82);
+    var(--surface);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(37, 99, 235, 0.18);
   box-shadow:
@@ -275,6 +275,74 @@ h3 {
   padding: 2rem 0;
   display: flex;
   align-items: center;
+}
+
+/* A head-and-shoulders portrait integrated into the site's light blue theme. */
+.hero-avatar-column {
+  min-width: 0;
+  align-self: start;
+}
+
+.avatar-stage {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: clamp(340px, 105vw, 540px);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 43%, rgba(14, 165, 233, 0.10), transparent 65%);
+}
+
+.avatar-stage canvas {
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 78%);
+  mask-image: linear-gradient(to bottom, #000 58%, transparent 78%);
+}
+
+.avatar-backdrop {
+  position: absolute;
+  inset: 29% 4% 36%;
+  background: repeating-linear-gradient(135deg, rgba(8, 145, 178, 0.13) 0 1px, transparent 1px 7px);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12% 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12% 88%, transparent);
+  pointer-events: none;
+}
+
+.avatar-status {
+  position: absolute;
+  inset: 45% 1.5rem auto;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.avatar-caption {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 1.4rem;
+  right: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .hero-avatar-column {
+    position: sticky;
+    top: 7rem;
+    margin-top: 5rem;
+  }
+
+  .avatar-stage {
+    height: clamp(480px, 62vh, 620px);
+  }
 }
 
 /* The workspace panel stays dark on purpose — a code editor as a contrast
@@ -424,7 +492,7 @@ h3 {
   border: 1px solid rgba(37, 99, 235, 0.16);
   background:
     linear-gradient(180deg, rgba(37, 99, 235, 0.04), transparent 30%),
-    rgba(255, 255, 255, 0.72);
+    var(--surface);
   padding: 1.5rem;
 }
 
@@ -449,7 +517,7 @@ h3 {
 .project-slab {
   overflow: hidden;
   border: 1px solid rgba(37, 99, 235, 0.18);
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--surface);
   box-shadow: 0 0 24px rgba(37, 99, 235, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -467,7 +535,7 @@ h3 {
 .project-slab-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent, rgba(246, 245, 252, 0.12) 40%, rgba(246, 245, 252, 0.88));
+  background: linear-gradient(180deg, transparent, rgba(8, 11, 24, 0.12) 40%, rgba(8, 11, 24, 0.88));
 }
 
 .project-slab-body {
@@ -509,13 +577,13 @@ h3 {
   border: 1px solid rgba(37, 99, 235, 0.16);
   background:
     radial-gradient(circle at top right, rgba(37, 99, 235, 0.08), transparent 28%),
-    rgba(251, 250, 255, 0.78);
+    rgba(14, 18, 35, 0.8);
   padding: 1.5rem;
 }
 
 .contact-info-card {
   border: 1px solid rgba(37, 99, 235, 0.14);
-  background: rgba(255, 255, 255, 0.52);
+  background: var(--surface);
   padding: 1.25rem;
   min-width: 0;
 }
@@ -541,7 +609,7 @@ a.contact-value:hover {
 
 .contact-form-shell {
   border: 1px solid rgba(37, 99, 235, 0.16);
-  background: rgba(255, 255, 255, 0.56);
+  background: var(--surface);
   padding: 1.5rem;
 }
 
@@ -666,7 +734,7 @@ a.contact-value:hover {
   overflow: hidden;
   border-top: 1px solid rgba(37, 99, 235, 0.14);
   border-bottom: 1px solid rgba(37, 99, 235, 0.14);
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--surface);
   backdrop-filter: blur(8px);
   padding: 1.1rem 0;
   -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);

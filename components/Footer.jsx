@@ -36,7 +36,7 @@ function Footer({ data }) {
             );
           })}
         </div>
-        <p className="text-sm text-[var(--muted)]">(c) {new Date().getFullYear()} {data.name}. Full stack web development with React, Node.js, Laravel, and clean execution.</p>
+        <p className="text-sm text-[var(--muted)]">(c) {new Date().getFullYear()} {data.name}. Web and mobile development with React, Next.js, React Native, Expo, and Node.js.</p>
       </div>
     </footer>
   );

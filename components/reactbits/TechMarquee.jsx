@@ -2,22 +2,7 @@
 
 import { memo } from "react";
 
-const DEFAULT_ITEMS = [
-  "React",
-  "Next.js",
-  "Node.js",
-  "Express",
-  "Laravel",
-  "MongoDB",
-  "MySQL",
-  "Redux",
-  "Tailwind CSS",
-  "REST APIs",
-  "Git",
-  "Responsive UI",
-];
-
-function TechMarquee({ items = DEFAULT_ITEMS }) {
+function TechMarquee({ items }) {
   // The track is rendered twice so translateX(-50%) loops seamlessly.
   const doubled = [...items, ...items];
 
