@@ -58,7 +58,7 @@ export const portfolioData = {
   title: "Full-Stack Developer",
   bio: "I build and ship web and mobile applications with React, Next.js, React Native, Expo, Node.js, TypeScript, and PostgreSQL. From REST APIs and database design to AI integrations and App Store and Google Play releases, I own features from development to production.",
   about:
-    "I'm a Karachi-based full-stack developer with 4+ years of experience building and shipping production web and mobile applications with React, Next.js, Node.js, TypeScript, PostgreSQL, and MongoDB. My work spans REST API design, relational and NoSQL data modelling, integrations with Stripe, Square, QuickBooks, CharmHealth EHR, and AWS S3, and production deployment. I own features end to end in Agile teams alongside UX, backend, and QA.",
+    "I'm a Pakistan-based full-stack developer with 4+ years of experience building and shipping production web and mobile applications with React, Next.js, Node.js, TypeScript, PostgreSQL, and MongoDB. My work spans REST API design, relational and NoSQL data modelling, integrations with Stripe, Square, QuickBooks, CharmHealth EHR, and AWS S3, and production deployment. I own features end to end in Agile teams alongside UX, backend, and QA.",
   highlight: "I've shipped a cross-platform React Native and Expo app to both the App Store and Google Play, with deep links, live match dashboards, and interactive venue maps.",
   heroTitles: ["Full-Stack Developer", "React & Next.js Developer", "React Native & Expo Developer", "Node.js API Developer"],
   technologies: ["React", "Next.js", "React Native", "Expo", "TypeScript", "Node.js", "PostgreSQL", "MongoDB", "Google Gemini", "Stripe", "AWS"],
