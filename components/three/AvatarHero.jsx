@@ -19,7 +19,6 @@ function AvatarHero({ name, title }) {
   const container = useRef(null);
   const input = useRef({ x: 0, y: 0, scroll: 0, tracking: false });
   const [reducedMotion, setReducedMotion] = useState(true);
-  const [nearby, setNearby] = useState(false);
   const [visible, setVisible] = useState(false);
   const [tabVisible, setTabVisible] = useState(true);
   const [mobile, setMobile] = useState(true);
@@ -30,9 +29,6 @@ function AvatarHero({ name, title }) {
 
   useEffect(() => {
     const element = container.current;
-    const preload = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) { setNearby(true); preload.disconnect(); }
-    }, { rootMargin: "200px" });
     const visibility = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting));
     const media = window.matchMedia("(max-width: 767px), (pointer: coarse)");
     const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -42,13 +38,11 @@ function AvatarHero({ name, title }) {
     updateDevice();
     updateMotion();
     updateTab();
-    preload.observe(element);
     visibility.observe(element);
     media.addEventListener("change", updateDevice);
     motionPreference.addEventListener("change", updateMotion);
     document.addEventListener("visibilitychange", updateTab);
     return () => {
-      preload.disconnect();
       visibility.disconnect();
       media.removeEventListener("change", updateDevice);
       motionPreference.removeEventListener("change", updateMotion);
@@ -93,8 +87,8 @@ function AvatarHero({ name, title }) {
       <AvatarBoundary>
         {failed ? <Unavailable /> : <>
           {!ready && <p className="avatar-status" role="status">Loading portrait…</p>}
-          {nearby && <AvatarScene input={input} active={active} mobile={mobile}
-            reducedMotion={Boolean(reducedMotion)} onReady={handleReady} onFailure={handleFailure} />}
+          <AvatarScene input={input} active={active} mobile={mobile}
+            reducedMotion={Boolean(reducedMotion)} onReady={handleReady} onFailure={handleFailure} />
         </>}
       </AvatarBoundary>
       <div className="avatar-caption" aria-hidden="true">

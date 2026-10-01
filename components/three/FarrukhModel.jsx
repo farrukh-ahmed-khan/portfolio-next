@@ -8,9 +8,13 @@ import { clone } from "three/examples/jsm/utils/SkeletonUtils.js";
 import { createAvatarGaze } from "./avatarGaze";
 import { prepareAvatarPortrait } from "./avatarPortrait";
 import { prepareAvatarMaterials } from "./avatarMaterials";
+import avatarAsset from "@/data/avatarAsset.json";
+
+// Fetch/decode while the Canvas and its environment initialize.
+if (typeof window !== "undefined") useGLTF.preload(avatarAsset.url, false);
 
 export default function FarrukhModel({ input, active, mobile, reducedMotion, onReady }) {
-  const { scene } = useGLTF("/models/farrukh.glb");
+  const { scene } = useGLTF(avatarAsset.url, false);
   const group = useRef(null);
   const time = useRef(0);
   const camera = useThree((state) => state.camera);
@@ -20,9 +24,8 @@ export default function FarrukhModel({ input, active, mobile, reducedMotion, onR
     // Style only this cloned rig; the cached source and its materials remain untouched.
     const object = clone(scene);
     const portrait = prepareAvatarPortrait(object);
-    const box = new Box3().setFromObject(object, true);
     const face = object.getObjectByName("Head");
-    const facePosition = face ? face.getWorldPosition(new Vector3()).add(new Vector3(0, 0.07, 0)) : box.getCenter(new Vector3());
+    const facePosition = face ? face.getWorldPosition(new Vector3()).add(new Vector3(0, 0.07, 0)) : new Box3().setFromObject(object, true).getCenter(new Vector3());
     return {
       object, center: portrait.center, size: portrait.size,
       facePosition, projectedFace: new Vector3(), gaze: createAvatarGaze(object),

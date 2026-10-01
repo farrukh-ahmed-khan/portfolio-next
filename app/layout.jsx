@@ -1,5 +1,6 @@
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { portfolioData } from "@/data/portfolioData";
+import avatarAsset from "@/data/avatarAsset.json";
 import "./globals.css";
 import "./cosmic.css";
 
@@ -131,6 +132,9 @@ const personJsonLd = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        <link rel="preload" href={avatarAsset.url} as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
+      </head>
       <body>
         <script
           type="application/ld+json"

@@ -6,9 +6,13 @@ import { createAvatarGaze } from "../components/three/avatarGaze.js";
 import { prepareAvatarPortrait } from "../components/three/avatarPortrait.js";
 import { prepareAvatarMaterials } from "../components/three/avatarMaterials.js";
 import { clone } from "three/examples/jsm/utils/SkeletonUtils.js";
+import { MeshoptDecoder } from "three-stdlib";
 
-const bytes = await readFile(new URL("../public/models/farrukh.glb", import.meta.url));
+const asset = JSON.parse(await readFile(new URL("../data/avatarAsset.json", import.meta.url), "utf8"));
+const path = process.argv.includes("--optimized") ? asset.url : "/models/farrukh.glb";
+const bytes = await readFile(new URL(`../public${path}`, import.meta.url));
 const loader = new GLTFLoader();
+loader.setMeshoptDecoder(typeof MeshoptDecoder === "function" ? MeshoptDecoder() : MeshoptDecoder);
 // Rig tests need the actual geometry/skin, but do not need browser image decoding.
 loader.register(() => ({ name: "test-texture-stub", loadTexture: () => Promise.resolve(new Texture()) }));
 const { scene } = await loader.parseAsync(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength), "");

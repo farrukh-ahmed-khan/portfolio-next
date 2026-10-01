@@ -1,8 +1,9 @@
 # Farrukh hero avatar
 
 The supplied `model.glb` is copied byte-for-byte to `public/models/farrukh.glb`.
-No replacement character, geometry processing, texture substitution, or structural
-skeleton edits are applied. Cursor-driven gaze rotates the existing head and eye
+The hero loads a compressed derivative of that same model, with identical vertex
+attributes, texture bytes, and rig transforms. No replacement character, texture
+substitution, or structural skeleton edits are applied. Cursor-driven gaze rotates the existing head and eye
 bones at runtime, following the requested face/eye interaction. A static relaxed
 arm pose and a head-and-shoulders camera crop hide the hands and lower body.
 
@@ -39,7 +40,7 @@ corneas, glasses, and hair is preserved.
 
 ## Integration
 
-- `components/three/AvatarHero.jsx`: lazy scene loading near the viewport,
+- `components/three/AvatarHero.jsx`: immediate client scene loading,
   visibility and input tracking, reduced-motion preference, and error boundary.
 - `components/three/AvatarScene.jsx`: React Three Fiber Canvas, warm key,
   cool fill, lavender rim, and a small local softbox environment.
@@ -81,13 +82,26 @@ The portrait has no separate opaque panel.
 
 ## Performance and failures
 
-The original asset is deliberately uncompressed to preserve the exact supplied
-file. Its first transfer is roughly 15 MB. Mobile uses DPR 1, no antialiasing,
+The original asset remains untouched. `npm run optimize:avatar` creates a
+content-hashed delivery GLB (6,199,540 bytes versus 15,713,308, a 60.5% reduction).
+It removes 84 unused, zero-weight morph target accessors and applies lossless
+Meshopt compression without quantization, simplification, or texture conversion.
+The script verifies decoded vertex attributes, triangle topology, texture bytes,
+joint transforms, and inverse bind matrices against the source. It refuses models
+with animation clips or active morph weights. Regenerate if the source changes.
+
+`data/avatarAsset.json` shares the generated URL between the server preload and
+client loader. The HTML preloads the binary before scene JavaScript arrives;
+`useGLTF.preload` starts decoding while the Canvas initializes. The content-hashed
+asset receives a one-year immutable cache header. The decoder ships with drei;
+no decoder CDN or extra texture requests are needed. The generation dependencies
+are development-only. Mobile uses DPR 1, no antialiasing,
 and a 24 fps rendering cap; desktop uses DPR at most 1.5 and a 30 fps cap.
 A local 128px environment is generated once; there is no remote HDR download.
 There are no
 postprocessing effects, shadow passes, orbit controls, or skeletal idle clips.
-Only three existing bones receive cursor-driven gaze; morph targets stay untouched.
+Only three existing bones receive cursor-driven gaze; unused morph targets are
+omitted from the delivery file and retained in the original GLB.
 Frames pause outside the viewport and in hidden tabs. Reduced motion renders a
 static pose; resize still refits the camera. WebGL, context-loss, or asset-loading
 failures display a short status message rather than substitute a character.
@@ -111,6 +125,12 @@ The project is JavaScript/JSX and has no standalone TypeScript check configured.
 - Simulated missing GLB and disabled WebGL both showed the status message.
 - No uncaught page errors occurred during normal browser checks.
 - Source and project GLB hashes match exactly.
+- `node scripts/test-avatar-gaze.mjs --optimized` checks the delivery asset using
+  the same Meshopt decoder as drei; gaze, framing, materials and proportions pass.
+- Production Chromium checks confirmed one HTML-preloaded model request, immutable
+  cache headers, zero transferred model bytes on reload, and desktop/mobile
+  rendering without browser or shader errors. Both portrait screenshots were
+  visually reviewed after optimization. Local timing is not a mobile-network benchmark.
 - `node scripts/test-avatar-gaze.mjs` verifies left/right and up/down gaze,
   angle clamping, neutral return, exact reduced-motion reset, and unchanged
   proportions and static body pose using the actual GLB rig. It also verifies
