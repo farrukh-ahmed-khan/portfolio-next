@@ -1,23 +1,26 @@
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+const inter = localFont({
+  src: "./fonts/Inter-Variable.woff2",
+  weight: "100 900",
+  style: "normal",
   variable: "--font-inter",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const spaceGrotesk = localFont({
+  src: "./fonts/SpaceGrotesk-Variable.woff2",
+  weight: "300 700",
+  style: "normal",
   variable: "--font-grotesk",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+const jetbrainsMono = localFont({
+  src: "./fonts/JetBrainsMono-Variable.woff2",
+  weight: "100 800",
+  style: "normal",
   variable: "--font-mono",
   display: "swap",
 });
