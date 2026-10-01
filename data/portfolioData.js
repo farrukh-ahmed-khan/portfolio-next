@@ -65,7 +65,7 @@ export const portfolioData = {
   resumeUrl: "/Farrukh-Ahmed-Khan-CV.pdf",
   stats: [
     { value: 4, suffix: "+", label: "Years Experience" },
-    { value: 1, suffix: "", label: "Mobile App Released" },
+    { value: 10, suffix: "+", label: "Mobile App Released" },
     { value: 3, suffix: "", label: "Professional Roles" },
   ],
   experience: [
