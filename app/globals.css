@@ -28,7 +28,7 @@ body {
   min-width: 320px;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-body), sans-serif;
   overflow-x: hidden;
 }
 
@@ -70,13 +70,13 @@ img {
 }
 
 .font-display {
-  font-family: var(--font-grotesk), sans-serif;
+  font-family: var(--font-display), sans-serif;
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--font-grotesk), sans-serif;
+  font-family: var(--font-display), sans-serif;
 }
 
 .glass-panel {

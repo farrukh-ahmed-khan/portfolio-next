@@ -41,7 +41,7 @@ html { color-scheme: dark; scroll-padding-top: 100px; }
 .hero-mission-footer .hero-kicker { font-size: 9px; line-height: 1.8; letter-spacing: 0.12em; color: #8d9ab7; }
 .hero-metrics { display: flex; gap: clamp(24px, 5vw, 80px); }
 .hero-metrics > div { display: grid; gap: 7px; }
-.hero-metrics strong { font-family: var(--font-grotesk), sans-serif; font-size: 2rem; font-weight: 500; color: #e6e5f4; }
+.hero-metrics strong { font-family: var(--font-display), sans-serif; font-size: 2rem; font-weight: 500; color: #e6e5f4; }
 .hero-metrics span { color: #9da8bf; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
 .hero-scroll { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid #b6a4ff36; border-radius: 50%; color: #b6a4ff; flex-shrink: 0; }
 .tech-marquee { background: #0c1020; border-color: #b6a4ff1f; padding-block: 24px; }
