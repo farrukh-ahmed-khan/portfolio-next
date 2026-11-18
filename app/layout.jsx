@@ -1,6 +1,7 @@
 import { IBM_Plex_Mono, Manrope, Sora } from "next/font/google";
 import { portfolioData } from "@/data/portfolioData";
 import avatarAsset from "@/data/avatarAsset.json";
+import { getYearsOfExperience } from "@/data/experience";
 import "./globals.css";
 import "./cosmic.css";
 
@@ -27,75 +28,80 @@ const plexMono = IBM_Plex_Mono({
 
 const siteUrl = portfolioData.contact.socials.portfolio;
 const siteName = `${portfolioData.name} | ${portfolioData.title}`;
-const siteDescription =
-  "Farrukh Ahmed Khan is a Karachi-based full-stack developer with 4+ years of experience building web and mobile apps with React, Next.js, React Native, Expo, Node.js, TypeScript, and PostgreSQL. Shipped to the App Store and Google Play.";
+// Render on each request so the experience and SEO stay current without a rebuild.
+export const dynamic = "force-dynamic";
 
-export const metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: siteName,
-    template: "%s | Farrukh Ahmed Khan",
-  },
-  description: siteDescription,
-  keywords: [
-    "Farrukh Ahmed Khan",
-    "Full Stack Engineer",
-    "Full Stack Developer",
-    "React Developer",
-    "Next.js Developer",
-    "React Native Developer",
-    "Expo Developer",
-    "iOS and Android App Development",
-    "TypeScript",
-    "PostgreSQL",
-    "Google Gemini Integration",
-    "Node.js Developer",
-    "Laravel Developer",
-    "MERN Stack Developer",
-    "Web Developer Karachi",
-    "Freelance Web Developer Pakistan",
-    "REST API Development",
-    "Hire Full Stack Developer",
-  ],
-  authors: [{ name: "Farrukh Ahmed Khan", url: siteUrl }],
-  creator: "Farrukh Ahmed Khan",
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    url: siteUrl,
-    siteName: "farrukh.dev",
-    title: siteName,
+export function generateMetadata() {
+  const siteDescription =
+    `Farrukh Ahmed Khan is a Karachi-based full-stack developer with ${getYearsOfExperience()}+ years of experience building web and mobile apps with React, Next.js, React Native, Expo, Node.js, TypeScript, and PostgreSQL. Shipped to the App Store and Google Play.`;
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: siteName,
+      template: "%s | Farrukh Ahmed Khan",
+    },
     description: siteDescription,
-    locale: "en_US",
-    images: [
-      {
-        url: "/profile.png",
-        width: 1254,
-        height: 1254,
-        alt: `${portfolioData.name} - ${portfolioData.title}`,
-      },
+    keywords: [
+      "Farrukh Ahmed Khan",
+      "Full Stack Engineer",
+      "Full Stack Developer",
+      "React Developer",
+      "Next.js Developer",
+      "React Native Developer",
+      "Expo Developer",
+      "iOS and Android App Development",
+      "TypeScript",
+      "PostgreSQL",
+      "Google Gemini Integration",
+      "Node.js Developer",
+      "Laravel Developer",
+      "MERN Stack Developer",
+      "Web Developer Karachi",
+      "Freelance Web Developer Pakistan",
+      "REST API Development",
+      "Hire Full Stack Developer",
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteName,
-    description: siteDescription,
-    images: ["/profile.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    authors: [{ name: "Farrukh Ahmed Khan", url: siteUrl }],
+    creator: "Farrukh Ahmed Khan",
+    alternates: {
+      canonical: "/",
+    },
+    openGraph: {
+      type: "website",
+      url: siteUrl,
+      siteName: "farrukh.dev",
+      title: siteName,
+      description: siteDescription,
+      locale: "en_US",
+      images: [
+        {
+          url: "/profile.png",
+          width: 1254,
+          height: 1254,
+          alt: `${portfolioData.name} - ${portfolioData.title}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: siteName,
+      description: siteDescription,
+      images: ["/profile.png"],
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-  category: "technology",
-};
+    category: "technology",
+  };
+}
 
 export const viewport = {
   width: "device-width",
