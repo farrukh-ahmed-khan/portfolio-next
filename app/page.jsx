@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
-import ScrollProgress from "@/components/ScrollProgress";
 import Skills from "@/components/Skills";
 import Testimonials from "@/components/Testimonials";
 import TechMarquee from "@/components/reactbits/TechMarquee";
@@ -19,7 +18,6 @@ import { portfolioData } from "@/data/portfolioData";
 function Home() {
   return (
     <div className="editorial-shell cosmic-shell relative min-h-screen bg-[var(--bg)] text-[var(--text)]">
-      <ScrollProgress />
       <BackToTop />
       <Toaster
         position="top-right"
