@@ -4,6 +4,8 @@ import { memo, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 import { FiArrowDownRight, FiArrowUpRight } from "react-icons/fi";
+import BlurText from "./reactbits/BlurText";
+import GradientText from "./reactbits/GradientText";
 import SpaceBackdrop from "./SpaceBackdrop";
 import AvatarHero from "./three/AvatarHero";
 
@@ -56,10 +58,12 @@ function Hero({ data }) {
       <div className="section-shell relative z-10">
         <div className="hero-cosmic-grid">
           <motion.div variants={containerVariants} initial="hidden" animate="visible" className="hero-copy min-w-0">
-            <motion.div variants={itemVariants} className="hero-availability">
-              <span /> Available for projects <span className="availability-location">Karachi / Remote</span>
-            </motion.div>
             <motion.p variants={itemVariants} className="hero-intro">Hi, I&apos;m {data.name}.</motion.p>
+            <motion.h1 variants={itemVariants} className="cosmic-headline">
+              <BlurText text="Web and mobile applications built with" stagger={0.035} />{" "}
+              <GradientText colors={["#c4b5fd", "#93d9ed", "#c4b5fd"]}>clarity,</GradientText>{" "}
+              <BlurText text="speed, and scale." delay={0.2} stagger={0.035} />
+            </motion.h1>
             <motion.div variants={itemVariants} className="hero-role font-space">
               <span>{displayText || data.title}</span><span className="blink-cursor">|</span>
             </motion.div>
